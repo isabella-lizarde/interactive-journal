@@ -12,6 +12,14 @@
       content="journal entry generator, online journal, reflection tools, journaling app"
     />
     <meta name="author" content="Your Name or Your Company" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <script src="script.js" defer></script>
+
     <title>Isabella Lizarde | Journal Entry Generator</title>
   </head>
   <body>
@@ -21,6 +29,9 @@
     </header>
     <main>
       <button>Press for a new journal prompt</button>
+      <div class="calendar-container">
+        <div id="calendar"></div>
+      </div>
       <section>
         <h2>Why journal?</h2>
         <p>Benefits of journaling</p>
@@ -33,9 +44,9 @@
           <li>link</li>
         </ul>
       </section>
-      <footer>
-        <p>Developed by Isabella Lizarde 2024</p>
-      </footer>
     </main>
+    <footer>
+      <p>Developed by Isabella Lizarde 2024</p>
+    </footer>
   </body>
 </html>
