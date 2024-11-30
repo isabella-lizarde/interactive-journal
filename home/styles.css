@@ -7,6 +7,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -14,12 +15,22 @@ h1 {
   color: #333;
 }
 
+/* add container around button to center */
+.prompt-button {
+  border: 1px solid blue;
+  justify-content: center;
+}
+
 .calendar-container {
-  padding-inline: 2rem;
+  max-width: 35rem;
+  /* max-block-size: 300px; */
+  margin-inline: 2rem;
+  border: 1px solid black;
   /* width: 100%; */
 }
 
 #calendar {
+  /* max-height: 20rem; */
   max-inline-size: 100%;
   /* margin-inline: 3rem; */
 }

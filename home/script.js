@@ -20,7 +20,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   calendar.render();
 });
-
-// calendar.on("eventClick", function (info) {
-//   alert(info.event.title + "\n" + info.event.extendedProps.description);
-// });
