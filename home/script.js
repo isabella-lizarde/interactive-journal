@@ -1,7 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var calendarEl = document.getElementById("calendar");
+// const emotionSelector = document.getElementById("emotion-selector");
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
+document.addEventListener("DOMContentLoaded", function () {
+  const calendarEl = document.getElementById("calendar");
+
+  const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     contentHeight: "auto",
     events: [
@@ -20,3 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   calendar.render();
 });
+
+const handleEmotionSelector = () => {
+  const selectEmotion = document.getAttribute("value");
+  selectEmotion.forEach((emotion) => {
+    emotion.addEventListener("click", () => {
+      console.log(emotion);
+    });
+  });
+};

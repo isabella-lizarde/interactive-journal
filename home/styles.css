@@ -22,15 +22,24 @@ h1 {
 }
 
 .calendar-container {
-  max-width: 35rem;
-  /* max-block-size: 300px; */
+  /* max-width: 35rem; */
+  max-inline-size: 50%;
+  /* max-block-size: 20px; */
   margin-inline: 2rem;
   border: 1px solid black;
+  border: 1px solid red;
   /* width: 100%; */
 }
 
 #calendar {
   /* max-height: 20rem; */
   max-inline-size: 100%;
+  /* max-block-size: 50%; */
   /* margin-inline: 3rem; */
+}
+
+@media (width < 48rem) {
+  .calendar-container {
+    max-inline-size: 100%;
+  }
 }
