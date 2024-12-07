@@ -25,26 +25,32 @@
   <body>
     <header>
       <h1>Reflect & Journal</h1>
-      <p><i>"Reflect on your day, Journal your thoughts"</i></p>
+      <!-- <p><i>"Reflect on your day, Journal your thoughts"</i></p> -->
     </header>
     <main>
       <button class="prompt-button">Press for a new journal prompt</button>
-      <label for="mood-tracker">Select an emotion:</label>
-      <select id="emotion-selector">
-        <option value="happy" title="Happy">😄</option>
-        <option value="neutral" title="Neutral">😐</option>
-        <option value="sad" title="Sad">😢</option>
-        <option value="angry" title="Angry">😡</option>
-        <option value="anxious" title="Anxious">😰</option>
-        <option value="Tired" title="Tired">🥱</option>
-      </select>
-      <div class="calendar-container">
-        <div id="calendar"></div>
-      </div>
+      <section>
+        <div class="mood-tracker-container">
+          <!-- <h2><label for="select-emotion">Select an emotion:</label></h2> -->
+          <select id="select-emotion">
+            <option value="" disabled selected>Select an emotion</option>
+            <option value="😄" title="Happy">😄</option>
+            <option value="😐" title="Neutral">😐</option>
+            <option value="😡" title="Angry">😡</option>
+            <option value="😰" title="Anxious">😰</option>
+            <option value="😢" title="Sad">😢</option>
+          </select>
+          <button>Add</button>
+        </div>
+        <div class="calendar-container">
+          <div id="calendar"></div>
+        </div>
+      </section>
       <section>
         <h2>Why journal?</h2>
         <p>Benefits of journaling</p>
       </section>
+      <option value="sad" title="Sad">😢</option>
       <section>
         <h2>Helpful links</h2>
         <ul>
