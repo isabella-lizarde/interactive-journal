@@ -1,23 +1,27 @@
-// const emotionSelector = document.getElementById("emotion-selector");
-
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
 
   const handleAddSelectedEmotion = () => {
     const selectEmotion = document.getElementById("select-emotion");
     const selectedEmotion = selectEmotion.value;
-    // console.log(selectedEmotion);
+
     if (selectedEmotion) {
       const eventTitle = selectedEmotion;
       const today = new Date();
       const localDate = today.toLocaleDateString("en-CA");
-      console.log(localDate);
+      const existingEvents = calendar
+        .getEvents()
+        .filter((event) => event.startStr === localDate);
 
-      calendar.addEvent({
-        title: eventTitle,
-        start: localDate,
-        classNames: ["fc-h-event", "fc-sticky"],
-      });
+      if (existingEvents.length > 0) {
+        existingEvents[0].setProp("title", eventTitle);
+      } else {
+        calendar.addEvent({
+          title: eventTitle,
+          start: localDate,
+          classNames: ["fc-h-event", "fc-sticky"],
+        });
+      }
     }
   };
 
@@ -25,17 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     initialView: "dayGridMonth",
     contentHeight: "auto",
   });
-
   calendar.render();
 
   document.addEventListener("click", handleAddSelectedEmotion);
 });
-
-// const handleAddSelectedEmotion = () => {
-//   const selectEmotion = document.getElementById("select-emotion");
-//   const selectedEmotion = selectEmotion.value;
-//   console.log(selectedEmotion);
-//   if (selectedEmotion) {
-
-//   }
-// };
