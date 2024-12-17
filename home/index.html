@@ -18,7 +18,6 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
-    <script src="script.js" defer></script>
 
     <title>Isabella Lizarde | Journal Entry Generator</title>
   </head>
@@ -40,7 +39,8 @@
             <option value="😰" title="Anxious">😰</option>
             <option value="😢" title="Sad">😢</option>
           </select>
-          <button>Add</button>
+          <button id="add-emotion-button">Add</button>
+          <button id="clear-emotions-button">Clear All Emotions</button>
         </div>
         <div class="calendar-container">
           <div id="calendar"></div>
@@ -50,7 +50,7 @@
         <h2>Why journal?</h2>
         <p>Benefits of journaling</p>
       </section>
-      <option value="sad" title="Sad">😢</option>
+      <!-- <option value="sad" title="Sad">😢</option> -->
       <section>
         <h2>Helpful links</h2>
         <ul>
@@ -63,5 +63,6 @@
     <footer>
       <p>Developed by Isabella Lizarde 2024</p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
