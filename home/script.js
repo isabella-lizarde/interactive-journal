@@ -37,18 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    // const eventsToSave = allEvents.map((event) => ({
-    //   title: event.title,
-    //   start: event.startStr,
-    // }));
-
-    // Save all events to localStorage
     const eventsToSave = [
       ...allEvents.map((event) => ({
         title: event.title,
         start: event.startStr,
       })),
-      // Include the new event explicitly if it doesn't already exist
       ...(existingEvent
         ? []
         : [
@@ -62,15 +55,40 @@ document.addEventListener("DOMContentLoaded", function () {
     saveEvents(eventsToSave);
   };
 
+  // setTimeout(() => {
+  const handleChangeOfMonth = () => {
+    const todayButton = document.querySelector(".fc-today-button");
+
+    if (todayButton) {
+      if (todayButton.hasAttribute("disabled")) {
+        todayButton.innerHTML = "current month";
+        todayButton.title = "at current month";
+        console.log(todayButton);
+      } else {
+        todayButton.innerHTML = "current month";
+        todayButton.title = "go to current month";
+      }
+    } else {
+      console.log("The 'fc-today-button' element does not exist.");
+    }
+    console.log("Attributes:", todayButton.getAttributeNames());
+    console.log("Disabled:", todayButton.hasAttribute("disabled"));
+  };
+  // }, 0);
+
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     contentHeight: "auto",
+    datesSet: function () {
+      handleChangeOfMonth();
+    },
     events: function (info, successCallback) {
       successCallback(loadEvents());
     },
   });
 
   calendar.render();
+  handleChangeOfMonth();
 
   document
     .getElementById("add-emotion-button")
@@ -85,6 +103,10 @@ document
     location.reload();
   });
 
-// why doesnt the emotion save the first time
-
 const journalPrompts = () => {};
+
+// const todayButton = () => {
+//   const currentDate = document.getElementsByClassName("fc-today-button");
+//   console.log(currentDate[0].innerHTML);
+// };
+// todayButton();
