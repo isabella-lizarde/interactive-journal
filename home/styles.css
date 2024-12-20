@@ -1,7 +1,4 @@
 body {
-  /* font-family: Arial, sans-serif; */
-  /* margin: 0; */
-  /* padding: 0; */
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -16,13 +13,10 @@ h1 {
   color: #333;
 }
 
-/* add container around button to center */
 .mood-tracker-container {
-  /* max-inline-size: 50%; */
   margin-inline: auto;
   display: flex;
   justify-content: center;
-  /* grid-template-columns: repeat(2, 6fr); */
   border: 1px solid green;
 }
 
@@ -34,42 +28,27 @@ h1 {
 .fc-sticky {
   display: flex !important;
   justify-content: center !important;
-  font-size: larger !important;
+  font-size: 1.5rem !important;
 }
 
 .prompt-button {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
   margin: auto;
-  /* max-inline-size: 100%; */
-  /* border: 1px solid blue; */
-  /* justify-content: center; */
 }
 
 .calendar-container {
-  /* max-width: 35rem; */
   max-inline-size: 50%;
-  /* max-block-size: 20px; */
   margin-inline: 2rem;
   border: 1px solid black;
   border: 1px solid red;
-  /* width: 100%; */
 }
-
-/* .mood-tracker-container {
-  border: 1px solid black;
-} */
 
 .fc-event-title-container {
   background-color: none;
 }
 
 #calendar {
-  /* max-height: 20rem; */
   max-inline-size: 100%;
-  /* max-block-size: 50%; */
-  /* margin-inline: 3rem; */
 }
 
 @media (width < 48rem) {

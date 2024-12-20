@@ -37,10 +37,27 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    const eventsToSave = allEvents.map((event) => ({
-      title: event.title,
-      start: event.startStr,
-    }));
+    // const eventsToSave = allEvents.map((event) => ({
+    //   title: event.title,
+    //   start: event.startStr,
+    // }));
+
+    // Save all events to localStorage
+    const eventsToSave = [
+      ...allEvents.map((event) => ({
+        title: event.title,
+        start: event.startStr,
+      })),
+      // Include the new event explicitly if it doesn't already exist
+      ...(existingEvent
+        ? []
+        : [
+            {
+              title: selectedEmotion,
+              start: localDate,
+            },
+          ]),
+    ];
 
     saveEvents(eventsToSave);
   };
@@ -67,5 +84,7 @@ document
     alert("Cleared all stored emotions!");
     location.reload();
   });
+
+// why doesnt the emotion save the first time
 
 const journalPrompts = () => {};
