@@ -1,3 +1,5 @@
+// import journalPrompts from "./journalPrompts.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
 
@@ -55,26 +57,25 @@ document.addEventListener("DOMContentLoaded", function () {
     saveEvents(eventsToSave);
   };
 
-  // setTimeout(() => {
   const handleChangeOfMonth = () => {
     const todayButton = document.querySelector(".fc-today-button");
 
     if (todayButton) {
+      todayButton.innerHTML = "current month";
       if (todayButton.hasAttribute("disabled")) {
-        todayButton.innerHTML = "current month";
+        // todayButton.innerHTML = "current month";
         todayButton.title = "at current month";
-        console.log(todayButton);
+        // console.log(todayButton);
       } else {
-        todayButton.innerHTML = "current month";
+        // todayButton.innerHTML = "current month";
         todayButton.title = "go to current month";
       }
     } else {
       console.log("The 'fc-today-button' element does not exist.");
     }
-    console.log("Attributes:", todayButton.getAttributeNames());
-    console.log("Disabled:", todayButton.hasAttribute("disabled"));
+    // console.log("Attributes:", todayButton.getAttributeNames());
+    // console.log("Disabled:", todayButton.hasAttribute("disabled"));
   };
-  // }, 0);
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
@@ -93,20 +94,20 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("add-emotion-button")
     .addEventListener("click", handleAddOrUpdateEmotion);
-});
 
-document
-  .getElementById("clear-emotions-button")
-  .addEventListener("click", () => {
-    localStorage.removeItem("calendarEvents");
-    alert("Cleared all stored emotions!");
-    location.reload();
+  document.getElementById("prompt-button").addEventListener("click", () => {
+    // console.log("prompt-button");
+    const promptDisplay = document.getElementById("prompt-display");
+    const randomPromptIndex = Math.floor(Math.random() * journalPrompts.length);
+    const getRandomPrompt = journalPrompts[randomPromptIndex];
+    promptDisplay.textContent = getRandomPrompt;
   });
 
-const journalPrompts = () => {};
-
-// const todayButton = () => {
-//   const currentDate = document.getElementsByClassName("fc-today-button");
-//   console.log(currentDate[0].innerHTML);
-// };
-// todayButton();
+  document
+    .getElementById("clear-emotions-button")
+    .addEventListener("click", () => {
+      localStorage.removeItem("calendarEvents");
+      alert("Cleared all stored emotions!");
+      location.reload();
+    });
+});
