@@ -178,4 +178,54 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Cleared all stored emotions!");
       location.reload();
     });
+
+  const calculateMonthlyMood = (month, year) => {
+    // Retrieve saved emotions
+    const events = JSON.parse(localStorage.getItem("calendarEvents")) || [];
+
+    // Filter events for the selected month and year
+    const monthlyEvents = events.filter((event) => {
+      const eventDate = new Date(event.start);
+      return eventDate.getMonth() === month && eventDate.getFullYear() === year;
+    });
+
+    // Define categories
+    const goodEmotions = ["😄"];
+    const okayEmotions = ["😐"];
+    const badEmotions = ["😡", "😰", "😢"];
+
+    let goodCount = 0;
+    let okayCount = 0;
+    let badCount = 0;
+
+    // Count emotions
+    monthlyEvents.forEach((event) => {
+      if (goodEmotions.includes(event.title)) {
+        goodCount++;
+      } else if (okayEmotions.includes(event.title)) {
+        okayCount++;
+      } else if (badEmotions.includes(event.title)) {
+        badCount++;
+      }
+    });
+
+    // Determine the month's outcome
+    let result = "";
+    if (goodCount > okayCount && goodCount > badCount) {
+      result = "Good Month";
+    } else if (okayCount >= goodCount && okayCount >= badCount) {
+      result = "Okay Month";
+    } else {
+      result = "Bad Month";
+    }
+
+    // Display the result
+    const summarySection = document.getElementById("monthly-summary");
+    summarySection.textContent = `${month + 1}/${year}: ${result}`;
+  };
+
+  // Example usage:
+  // Assume current month and year
+  const today = new Date();
+  calculateMonthlyMood(today.getMonth(), today.getFullYear());
 });
