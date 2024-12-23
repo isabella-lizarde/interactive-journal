@@ -25,6 +25,11 @@ h1 {
   border: none !important;
 }
 
+.fc-daygrid-day.no-event-previous-date:hover {
+  cursor: pointer;
+  background-color: #f0f0f0; /* Optional: Highlight effect */
+}
+
 .fc-sticky {
   display: flex !important;
   justify-content: center !important;
@@ -45,6 +50,19 @@ h1 {
 
 .fc-event-title-container {
   background-color: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#select-emotion-calendar {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background: white;
 }
 
 #calendar {

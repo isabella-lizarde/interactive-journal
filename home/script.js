@@ -20,21 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const today = new Date();
-    const localDate = today.toLocaleDateString("en-CA");
+    const today = new Date().toLocaleDateString("en-CA");
 
     const allEvents = calendar.getEvents();
 
-    const existingEvent = allEvents.find(
-      (event) => event.startStr === localDate
-    );
+    const existingEvent = allEvents.find((event) => event.startStr === today);
 
     if (existingEvent) {
       existingEvent.setProp("title", selectedEmotion);
     } else {
       calendar.addEvent({
         title: selectedEmotion,
-        start: localDate,
+        start: today,
         classNames: ["fc-h-event", "fc-sticky"],
       });
     }
@@ -49,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : [
             {
               title: selectedEmotion,
-              start: localDate,
+              start: today,
             },
           ]),
     ];
@@ -63,28 +60,100 @@ document.addEventListener("DOMContentLoaded", function () {
     if (todayButton) {
       todayButton.innerHTML = "current month";
       if (todayButton.hasAttribute("disabled")) {
-        // todayButton.innerHTML = "current month";
         todayButton.title = "at current month";
-        // console.log(todayButton);
       } else {
-        // todayButton.innerHTML = "current month";
         todayButton.title = "go to current month";
       }
     } else {
       console.log("The 'fc-today-button' element does not exist.");
     }
-    // console.log("Attributes:", todayButton.getAttributeNames());
-    // console.log("Disabled:", todayButton.hasAttribute("disabled"));
+  };
+
+  const updateDayClasses = () => {
+    const allDays = document.querySelectorAll(".fc-daygrid-day");
+    const allEvents = calendar.getEvents();
+    const today = new Date().toLocaleDateString("en-CA");
+
+    allDays.forEach((day) => {
+      const dateStr = day.getAttribute("data-date"); // Get the date in 'YYYY-MM-DD' format
+      const hasEvent = allEvents.some((event) => event.startStr === dateStr);
+
+      if (!hasEvent && dateStr < today) {
+        day.classList.add("no-event-previous-date");
+      } else {
+        day.classList.remove("no-event-previous-date");
+      }
+    });
   };
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: "dayGridMonth",
     contentHeight: "auto",
-    datesSet: function () {
-      handleChangeOfMonth();
-    },
+    events: loadEvents(),
+    datesSet: handleChangeOfMonth,
+    updateDayClasses,
+    eventContent: updateDayClasses,
+    eventDidMount: updateDayClasses,
     events: function (info, successCallback) {
       successCallback(loadEvents());
+    },
+    dateClick: function (info) {
+      const selectedDate = new Date(info.dateStr);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      if (selectedDate > today) {
+        return;
+      }
+
+      const allEvents = calendar.getEvents();
+      const existingEvent = allEvents.find(
+        (event) => event.startStr === info.dateStr
+      );
+
+      const dropdown = document.getElementById("select-emotion-calendar");
+
+      const cell = info.dayEl;
+      const cellRect = cell.getBoundingClientRect();
+      dropdown.style.top = `${cellRect.top + window.scrollY}px`;
+      dropdown.style.left = `${cellRect.left + window.scrollX}px`;
+
+      dropdown.classList.remove("hidden");
+
+      const onDropdownChange = () => {
+        const selectedEmotion = dropdown.value;
+
+        if (selectedEmotion) {
+          if (existingEvent) {
+            existingEvent.setProp("title", selectedEmotion);
+          } else {
+            calendar.addEvent({
+              title: selectedEmotion,
+              start: info.dateStr,
+              classNames: ["fc-h-event", "fc-sticky"],
+            });
+          }
+
+          const eventsToSave = calendar.getEvents().map((event) => ({
+            title: event.title,
+            start: event.startStr,
+          }));
+          saveEvents(eventsToSave);
+
+          dropdown.classList.add("hidden");
+        }
+      };
+
+      dropdown.removeEventListener("change", onDropdownChange);
+      dropdown.addEventListener("change", onDropdownChange);
+
+      const closeDropdown = (e) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.add("hidden");
+          document.removeEventListener("click", closeDropdown);
+        }
+      };
+      document.addEventListener("click", closeDropdown, { once: true });
     },
   });
 
@@ -96,7 +165,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .addEventListener("click", handleAddOrUpdateEmotion);
 
   document.getElementById("prompt-button").addEventListener("click", () => {
-    // console.log("prompt-button");
     const promptDisplay = document.getElementById("prompt-display");
     const randomPromptIndex = Math.floor(Math.random() * journalPrompts.length);
     const getRandomPrompt = journalPrompts[randomPromptIndex];
