@@ -102,7 +102,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
+      const cell = info.dayEl;
+      const cellRect = cell.getBoundingClientRect();
+
       if (selectedDate > today) {
+        info.el.style.pointerEvents = "none";
         return;
       }
 
@@ -112,15 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       const dropdown = document.getElementById("select-emotion-calendar");
-
-      const cell = info.dayEl;
-      const cellRect = cell.getBoundingClientRect();
+      dropdown.classList.remove("hidden");
       dropdown.style.top = `${cellRect.top + window.scrollY}px`;
       dropdown.style.left = `${cellRect.left + window.scrollX}px`;
 
-      dropdown.classList.remove("hidden");
-
-      const onDropdownChange = () => {
+      dropdown.onchange = () => {
         const selectedEmotion = dropdown.value;
 
         if (selectedEmotion) {
@@ -138,22 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
             title: event.title,
             start: event.startStr,
           }));
-          saveEvents(eventsToSave);
+          localStorage.setItem("calendarEvents", JSON.stringify(eventsToSave));
 
           dropdown.classList.add("hidden");
+          dropdown.value = "";
         }
       };
-
-      dropdown.removeEventListener("change", onDropdownChange);
-      dropdown.addEventListener("change", onDropdownChange);
-
-      const closeDropdown = (e) => {
-        if (!dropdown.contains(e.target)) {
-          dropdown.classList.add("hidden");
-          document.removeEventListener("click", closeDropdown);
-        }
-      };
-      document.addEventListener("click", closeDropdown, { once: true });
     },
   });
 
