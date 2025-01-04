@@ -1,5 +1,3 @@
-// import journalPrompts from "./journalPrompts.js";
-
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calendar");
 
@@ -151,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
   handleChangeOfMonth();
 
   document
-    .getElementById("add-emotion-button")
+    .getElementById("add-emotions-button")
     .addEventListener("click", handleAddOrUpdateEmotion);
 
   document.getElementById("prompt-button").addEventListener("click", () => {

@@ -12,6 +12,12 @@
       content="journal entry generator, online journal, reflection tools, journaling app"
     />
     <meta name="author" content="Your Name or Your Company" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow&family=Cutive+Mono&family=La+Belle+Aurore&family=Merienda:wght@300..900&family=Paprika&family=Tenali+Ramakrishna&family=Yuji+Syuku&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css"
@@ -24,23 +30,33 @@
   <body>
     <header>
       <h1>Reflect & Journal</h1>
+      <div class="background-animation">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+      </div>
     </header>
     <main>
-      <p id="prompt-display">"Reflect on your day, Journal your thoughts"</p>
-      <button id="prompt-button" class="prompt-button">
-        Press for a new journal prompt
-      </button>
-      <section>
-        <div class="mood-tracker-container">
-          <select id="select-emotion">
-            <option value="" disabled selected>Select an emotion</option>
-            <option value="😄" title="Happy">😄</option>
-            <option value="😐" title="Neutral">😐</option>
-            <option value="😡" title="Angry">😡</option>
-            <option value="😰" title="Anxious">😰</option>
-            <option value="😢" title="Sad">😢</option>
-          </select>
-          <button id="add-emotion-button">Add</button>
+      <section id="mood-tracker">
+        <div class="prompt-container">
+          <p id="prompt-display">
+            "Reflect on your day, Journal your thoughts"
+          </p>
+          <button id="prompt-button">Press for a new journal prompt</button>
+        </div>
+        <div class="mood-tracker-header">
+          <h2>Monthly Mood Tracker:</h2>
+          <div class="mood-tracker-input">
+            <select id="select-emotion">
+              <option value="" disabled selected>Select an emotion</option>
+              <option value="😄" title="Happy">😄</option>
+              <option value="😐" title="Neutral">😐</option>
+              <option value="😡" title="Angry">😡</option>
+              <option value="😰" title="Anxious">😰</option>
+              <option value="😢" title="Sad">😢</option>
+            </select>
+            <button id="add-emotions-button">Add</button>
+          </div>
           <button id="clear-emotions-button">Clear All Emotions</button>
         </div>
         <select id="select-emotion-calendar" class="hidden">
@@ -51,11 +67,11 @@
           <option value="😰" title="Anxious">😰</option>
           <option value="😢" title="Sad">😢</option>
         </select>
-        <div class="calendar-container">
-          <div id="calendar"></div>
-        </div>
-        <div id="monthly-summary" class="summary-section"></div>
       </section>
+      <div class="calendar-container">
+        <div id="calendar"></div>
+      </div>
+      <div id="monthly-summary" class="summary-section"></div>
       <section>
         <h2>Why Journal?</h2>
         <div>

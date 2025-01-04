@@ -1,3 +1,9 @@
+:root {
+  --header-height: 11rem;
+  --header-font: "La Belle Aurore", serif;
+  --paragraph-font: "Yuji Syuku", serif;
+}
+
 body {
   display: flex;
   box-sizing: border-box;
@@ -6,18 +12,142 @@ body {
   justify-content: center;
   min-height: 100vh;
   position: relative;
+  background: linear-gradient(
+    to top left,
+    #324a8b 0%,
+    #455fa4 20%,
+    #696fbc 40%,
+    #9f91c0 60%,
+    #ae9ec6 80%,
+    #f7c59f 100%
+  );
+  font-family: var(--paragraph-font);
 }
 
 h1 {
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 4.5rem;
+  font-family: var(--header-font);
+  color: white;
+  margin-block: 2rem;
 }
 
-.mood-tracker-container {
-  margin-inline: auto;
+main {
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+p {
+  z-index: 1;
+}
+
+p {
+  color: white;
+}
+
+button,
+select {
+  font-family: var(--paragraph-font);
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0.6rem;
+  padding: 0.6rem 1rem;
+  border: 0.5px ridge white;
+  box-shadow: 0 0.1rem 1.5rem 0.1rem white;
+  opacity: 1;
+  z-index: 1;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+button:hover,
+select:hover {
+  cursor: pointer;
+}
+
+button:focus-visible {
+  border: none;
+}
+
+.background-animation {
+  width: 100%;
+}
+
+.cloud {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: white;
+  box-shadow: -8rem -0.8rem 1.5rem 1rem rgb(255, 255, 255),
+    -2rem -3rem 0.5rem 0.5rem rgb(255, 255, 255),
+    3.5rem -3rem 0.5rem 0.5rem rgb(255, 255, 255),
+    8rem -1rem 1.5rem 1rem rgb(255, 255, 255),
+    0.3rem 0.8rem 0.8rem 1.8rem rgb(236, 229, 242),
+    -7.5rem 2.5rem 0.8rem 1.5rem rgb(201, 186, 212),
+    7.5rem 2.5rem 0.8rem 1rem rgb(201, 186, 212),
+    0 4.5rem 0.5rem 1.5rem rgb(201, 186, 212);
+  filter: blur(12px);
+  position: absolute;
+  animation: drift 3s ease-in-out infinite, float 3s ease-in-out infinite;
+}
+
+.cloud:nth-child(1) {
+  top: 4%;
+  left: 10%;
+  width: 8rem;
+  height: 7rem;
+  animation-delay: 1.5s;
+}
+
+.cloud:nth-child(2) {
+  top: 4%;
+  right: 10%;
+  width: 8rem;
+  height: 7rem;
+  animation-delay: 0.5s;
+}
+
+.cloud:nth-child(3) {
+  top: 9.5%;
+  left: 45%;
+  width: 7.5rem;
+  height: 5rem;
+  animation-delay: 1s;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(-3%);
+  }
+  50% {
+    transform: translateX(3%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(3%);
+  }
+  50% {
+    transform: translateY(-3%);
+  }
+}
+
+.mood-tracker-header {
+  margin-inline: 2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  border: 1px solid green;
+  align-items: center;
+}
+
+.mood-tracker-input {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 3fr 1fr;
+  z-index: 1;
 }
 
 .fc-h-event {
@@ -27,7 +157,7 @@ h1 {
 
 .fc-daygrid-day.no-event-previous-date:hover {
   cursor: pointer;
-  background-color: #f0f0f0; /* Optional: Highlight effect */
+  background-color: #f0f0f0;
 }
 
 .fc-sticky {
@@ -36,16 +166,10 @@ h1 {
   font-size: 1.5rem !important;
 }
 
-.prompt-button {
-  display: flex;
-  margin: auto;
-}
-
 .calendar-container {
-  max-inline-size: 50%;
-  margin-inline: 2rem;
-  border: 1px solid black;
-  border: 1px solid red;
+  margin-inline-start: auto;
+  margin-block-start: 5rem;
+  z-index: 1;
 }
 
 .fc-event-title-container {
@@ -54,6 +178,32 @@ h1 {
 
 .hidden {
   display: none;
+}
+
+#prompt-display {
+  font-size: 3rem;
+}
+
+.prompt-container {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+#add-emotions-button {
+  max-width: fit-content;
+}
+
+#clear-emotions-button {
+  margin-block: 1rem;
+}
+
+#mood-tracker {
+  display: grid;
+  gap: 5rem;
 }
 
 #select-emotion-calendar {
@@ -72,5 +222,18 @@ h1 {
 @media (width < 48rem) {
   .calendar-container {
     max-inline-size: 100%;
+  }
+
+  .mood-tracker-header {
+    margin-inline: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mood-tracker-input {
+    display: flex;
+    gap: 0.5rem;
   }
 }
