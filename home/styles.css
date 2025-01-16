@@ -24,11 +24,20 @@ body {
   font-family: var(--paragraph-font);
 }
 
+header {
+  /* border: 1px solid black; */
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  /* transform: translateY(10%); */
+}
+
 h1 {
   font-size: 4.5rem;
   font-family: var(--header-font);
   color: white;
-  margin-block: 2rem;
+  /* margin-block: 2rem; */
+  text-align: center;
 }
 
 main {
@@ -70,10 +79,99 @@ button:focus-visible {
 }
 
 .background-animation {
-  width: 100%;
+  position: absolute;
+  top: -5%;
+  /* margin-inline: 0 auto; */
+  /* transform: translateY(-100%); */
+  min-width: 100vw;
+  min-height: calc(100vh - var(--header-height));
+  /* height: calc(100vh - var(--header-height)); */
+  /* max-inline-size: 100vw; */
+  /* max-block-size: 100vh; */
+  gap: 50rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: row;
+  border: 1px solid white;
 }
 
 .cloud {
+  width: 8rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    white 75%,
+    rgba(255, 255, 255, 0.9) 90%,
+    rgba(200, 200, 200, 0) 100%
+  );
+  box-shadow: 0 -4rem 1rem 0.5rem rgb(255, 255, 255),
+    -6rem 2rem 1rem 0.8rem rgba(255, 255, 255, 0.9),
+    0 5.5rem 1rem 1.7rem rgba(255, 255, 255, 0.8),
+    5.5rem 2rem 1rem 1.5rem rgba(255, 255, 255, 0.9),
+    -7.5rem 3rem 1rem 1.5rem rgb(236, 229, 242),
+    -4.5rem -3rem 1rem 0.5rem rgba(255, 255, 255, 0.8),
+    8rem 3.5rem 1rem 1.5rem rgba(236, 229, 242, 0.9),
+    5.5rem -2.5rem 1rem 0.2rem rgba(255, 255, 255, 0.9);
+  /* 1rem 6rem 1.5rem 1.7rem rgba(150, 96, 197, 0.8); */
+  opacity: 0.9;
+  filter: blur(10px);
+  animation: drift 40s linear infinite, float 3s ease-in-out infinite;
+}
+
+.cloud-small {
+  width: 5.5rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-block-start: 10rem;
+  position: absolute;
+  background: radial-gradient(
+    circle at 50% 50%,
+    white 70%,
+    rgba(255, 255, 255, 0.9) 85%,
+    rgba(200, 200, 200, 0) 100%
+  );
+  box-shadow: 3rem -0.5rem 0.5rem 1.7rem rgb(255, 255, 255),
+    -2.5rem -1rem 0.4rem 1rem rgb(255, 255, 255),
+    -5.5rem 1.5rem 0.5rem 2rem rgba(255, 255, 255, 0.8),
+    4.5rem 1.5rem 0.8rem 2.5rem rgba(255, 255, 255, 0.8),
+    3rem 4rem 1rem 2rem rgb(236, 229, 242),
+    6.5rem 2rem 0.8rem 2rem rgba(236, 229, 242, 0.7),
+    2rem 5.5rem 0.8rem 1.7rem rgba(255, 255, 255, 0.9),
+    -3.5rem 5rem 1rem 1.2rem rgb(236, 229, 242),
+    -6.3rem 0.5rem 0.5rem 2rem rgba(236, 229, 242, 0.7);
+  filter: blur(6px);
+  opacity: 0.8;
+  animation: drift-small 50s linear infinite, float 4s ease-in-out infinite;
+}
+
+.cloud-large {
+  /* top: 5%; */
+  width: 10rem;
+  height: 8rem;
+  border-radius: 50%;
+  /* position: absolute; */
+  background: radial-gradient(
+    circle at 50% 50%,
+    white 70%,
+    rgba(255, 255, 255, 0.9) 85%,
+    rgba(200, 200, 200, 0) 100%
+  );
+  box-shadow: 6rem -2rem 1rem 0.5rem rgba(255, 255, 255, 0.8),
+    -5rem -1rem 1rem 0.4rem rgba(255, 255, 255, 0.8),
+    0rem 3rem 1rem 0.3rem rgba(255, 255, 255, 0.8),
+    0.3rem -2.7rem 1.5rem 1rem rgb(236, 229, 242),
+    -8rem 3.5rem 1.5rem 0.5rem rgba(255, 255, 255, 0.7),
+    7.5rem 2.5rem 1rem 0.5rem rgba(255, 255, 255, 0.8),
+    0 4.5rem 1rem 1.5rem rgba(255, 255, 255, 0.5);
+  filter: blur(12px);
+  opacity: 1;
+  animation: drift-large 35s linear infinite, float 3s ease-in-out infinite;
+}
+
+/* .cloud {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -89,31 +187,21 @@ button:focus-visible {
   filter: blur(12px);
   position: absolute;
   animation: drift 3s ease-in-out infinite, float 3s ease-in-out infinite;
-}
-
-.cloud:nth-child(1) {
-  top: 4%;
-  left: 10%;
-  width: 8rem;
-  height: 7rem;
-  animation-delay: 1.5s;
+} */
+/* .cloud:nth-child(1) {
+  top: 5%;
+  left: 100%;
 }
 
 .cloud:nth-child(2) {
-  top: 4%;
-  right: 10%;
-  width: 8rem;
-  height: 7rem;
-  animation-delay: 0.5s;
+  top: 10%;
+  right: 50%;
 }
 
 .cloud:nth-child(3) {
   top: 9.5%;
   left: 45%;
-  width: 7.5rem;
-  height: 5rem;
-  animation-delay: 1s;
-}
+} */
 
 @keyframes drift {
   0%,
