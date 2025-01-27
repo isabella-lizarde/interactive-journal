@@ -207,13 +207,19 @@ document.addEventListener("DOMContentLoaded", function () {
       result = "Bad Month";
     }
 
-    // Display the result
     const summarySection = document.getElementById("monthly-summary");
     summarySection.textContent = `${month + 1}/${year}: ${result}`;
   };
 
-  // Example usage:
-  // Assume current month and year
   const today = new Date();
   calculateMonthlyMood(today.getMonth(), today.getFullYear());
+
+  function adjustContentHeight() {
+    const headerHeight = document.querySelector("#header").offsetHeight;
+    const landscapeImage = document.querySelector("#landscape");
+    landscapeImage.style.minHeight = `calc(100vh - ${headerHeight}px)`;
+  }
+
+  window.addEventListener("load", adjustContentHeight);
+  window.addEventListener("resize", adjustContentHeight);
 });

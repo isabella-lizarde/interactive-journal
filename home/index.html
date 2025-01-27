@@ -12,12 +12,9 @@
       content="journal entry generator, online journal, reflection tools, journaling app"
     />
     <meta name="author" content="Your Name or Your Company" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Cutive+Mono&family=La+Belle+Aurore&family=Merienda:wght@300..900&family=Paprika&family=Tenali+Ramakrishna&family=Yuji+Syuku&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Birthstone&family=Birthstone+Bounce:wght@400;500&family=Euphoria+Script&family=Hurricane&family=Molle&family=Qwitcher+Grypen:wght@400;700&family=Rochester&family=Style+Script&family=Whisper&family=Yuji+Syuku&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css"
@@ -25,56 +22,78 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
 
-    <title>Isabella Lizarde | Journal Entry Generator</title>
+    <title>Isabella Lizarde | Interactive Journaling </title>
   </head>
   <body>
-    <header>
-      <h1>Reflect & Journal</h1>
-      <div class="background-animation">
-        <div class="cloud-small"></div>
-        <div class="cloud"></div>
-        <div class="cloud-large"></div>
-      </div>
+    <header id="header">
+      <nav>
+        <h1 class="animated-header">Sage & Ink</h1>
+        <ul class="nav-links">
+          <li><a href="#journal-prompts">Journal Prompts</a></li>
+          <li><a href="#mood-tracker">Mood Tracker</a></li>
+          <li><a href="#journal-entry">Journal Entry</a></li>
+          <li><a href="#why-journal">Why Journal?</a></li>
+          <li><a href="#helpful-links">Helpful Links</a></li>
+        </ul>
     </header>
     <main>
-      <section id="mood-tracker">
+      <section id="landscape">
+          <div class="landscape-image" alt="Landscape image">
+        </div>
+      </section>
+      <section id="journal-prompts">
         <div class="prompt-container">
-          <p id="prompt-display">
-            "Reflect on your day, Journal your thoughts"
-          </p>
+          <h2 id="prompt-display">prompt display</h2>
           <button id="prompt-button">Press for a new journal prompt</button>
         </div>
-        <div class="mood-tracker-header">
-          <h2>Monthly Mood Tracker:</h2>
-          <div class="mood-tracker-input">
-            <select id="select-emotion">
-              <option value="" disabled selected>Select an emotion</option>
-              <option value="😄" title="Happy">😄</option>
-              <option value="😐" title="Neutral">😐</option>
-              <option value="😡" title="Angry">😡</option>
-              <option value="😰" title="Anxious">😰</option>
-              <option value="😢" title="Sad">😢</option>
-            </select>
-            <button id="add-emotions-button">Add</button>
+      </section>
+      <section id="mood-tracker">
+        <div class="mood-tracker-container">
+          <div class="mood-tracker-header">
+            <h2>Monthly Mood Tracker:</h2>
+            <div class="mood-tracker-input">
+              <select id="select-emotion">
+                <option value="" disabled selected>Select an emotion</option>
+                <option value="😄" title="Happy">😄</option>
+                <option value="😐" title="Neutral">😐</option>
+                <option value="😡" title="Angry">😡</option>
+                <option value="😰" title="Anxious">😰</option>
+                <option value="😢" title="Sad">😢</option>
+              </select>
+              <button id="add-emotions-button">Add</button>
+            </div>
+            <button id="clear-emotions-button">Clear All Emotions</button>
           </div>
-          <button id="clear-emotions-button">Clear All Emotions</button>
+          <select id="select-emotion-calendar" class="hidden">
+            <option value="" disabled selected>Select an emotion</option>
+            <option value="😄" title="Happy">😄</option>
+            <option value="😐" title="Okay">😐</option>
+            <option value="😡" title="Angry">😡</option>
+            <option value="😰" title="Anxious">😰</option>
+            <option value="😢" title="Sad">😢</option>
+          </select>
         </div>
-        <select id="select-emotion-calendar" class="hidden">
-          <option value="" disabled selected>Select an emotion</option>
-          <option value="😄" title="Happy">😄</option>
-          <option value="😐" title="Okay">😐</option>
-          <option value="😡" title="Angry">😡</option>
-          <option value="😰" title="Anxious">😰</option>
-          <option value="😢" title="Sad">😢</option>
-        </select>
       </section>
       <div class="calendar-container">
         <div id="calendar"></div>
+        <div id="monthly-summary" class="summary-section"></div>
       </div>
-      <div id="monthly-summary" class="summary-section"></div>
-      <section>
-        <h2>Why Journal?</h2>
+      <section id="journal-entry">
+        <div class="journal-entry-container">
+          <div class="journal-entry-header">
+            <h2>Journal Entry:</h2>
+            <button id="add-entry-button">Add Entry</button>
+          </div>
+          <textarea
+            id="journal-entry-text"
+            placeholder="Write your journal entry here..."
+          ></textarea>
+          <button id="clear-entry-button">Clear Entry</button>
+        </div>
+      </section>
+      <section id="">
         <div>
+          <h2>Why Journal?</h2>
           <h3>Emotional Wellness</h3>
           <p>
             Writing in a journal can be an effective way to cope with anxiety,
