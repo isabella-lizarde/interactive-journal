@@ -1,6 +1,6 @@
 :root {
   --header-height: 11rem;
-  --header-font: "Allura", serif;
+  --header-font: "Lavishly Yours", serif;
   --paragraph-font: "Yuji Syuku", serif;
 }
 
@@ -20,24 +20,15 @@ body {
   background-repeat: no-repeat;
   font-family: var(--paragraph-font);
 }
-
-header {
-  min-inline-size: 100%;
-  border: 1px solid blue;
-}
-main {
+/* main {
   border: 1px solid black;
-}
+} */
 
 h1,
 h2,
 h3,
 p {
-  z-index: 1;
-}
-
-p {
-  color: black;
+  color: #273526;
 }
 
 button,
@@ -63,48 +54,180 @@ button:focus-visible {
   border: none;
 }
 
-nav {
+/* ORGANIZE INTO CORRECT SECTIONS */
+
+.header {
+  min-inline-size: 100%;
+  position: fixed; /* Keeps the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(
+    250,
+    249,
+    246,
+    0.95
+  ); /* Slightly transparent for a modern look */
+  z-index: 1000;
+  /* border: 1px solid blue; */
+}
+
+.header__nav {
   display: flex;
-  margin-block: 0;
+  margin-block-end: 0.5rem;
   align-items: baseline;
   padding-inline: 1rem;
 }
 
-.landscape-image {
-  min-inline-size: 100%;
-  min-block-size: calc(100vh - 74px);
-  background-image: url("/images/journaling-landscape.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-}
-
-.nav-links {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  margin-inline-start: auto;
-  border: 1px solid pink;
-  list-style-type: none;
-}
-
-.nav-links a {
-  color: black;
-  text-decoration: none;
-}
-
-.animated-header {
+.header__brand {
   white-space: nowrap;
   margin-block: 0;
   font-size: 3.5rem;
   font-family: var(--header-font);
-  color: #8b998c;
+  color: #4c583e;
   text-align: center;
+  /* border: 1px solid red; */
+}
+
+.header__nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin-inline-start: auto;
+  /* border: 1px solid pink; */
+  list-style-type: none;
+}
+
+.header__nav-link {
+  color: #273526;
+  text-decoration: none;
+}
+
+.main__hero {
+  min-inline-size: 100%;
+  min-block-size: 100vh;
+  background-image: url("/images/journaling-landscape.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  position: relative;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.welcome__container {
+  position: absolute;
+  top: 35%;
+  max-inline-size: 40rem;
+  padding: 2rem;
+  background: rgba(250, 249, 246, 0.95);
+  border-radius: 0.5rem;
+}
+
+.welcome__title {
+  text-align: center;
+}
+
+.benefits__title {
+  text-align: center;
+}
+
+.benefits__grid {
+  display: grid;
+  min-inline-size: 90%;
+  gap: 1rem 2rem;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: first baseline;
+  justify-self: center;
+  border: 1px solid blue;
+}
+
+.benefits__display-description {
+  justify-self: center;
+  font-size: 1.3rem;
+  border: 1px solid black;
+}
+
+.benefits__description {
+  max-inline-size: 50rem;
+  padding: 2.5rem;
   border: 1px solid red;
 }
 
-.mood-tracker-header {
+.benefits__description--hidden {
+  display: none;
+}
+
+.benefits__item {
+  border: 1px solid red;
+  max-inline-size: 30rem;
+  justify-items: center;
+}
+
+.benefits__icon {
+  min-inline-size: 15rem;
+  min-block-size: 15rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid blue;
+  border-radius: 50%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.benefits__icon:hover {
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(180deg) scale3d(1.1, 1.1, 1.1);
+}
+
+.benefits__icon--emotional-wellness {
+  background-image: url("/images/emotional-wellness-icon.png");
+  /* transform: translateX(50%); */
+}
+
+.benefits__icon--self-awareness {
+  background-image: url("/images/self-awareness-icon.png");
+}
+
+.benefits__icon--memory {
+  background-image: url("/images/memory-icon.png");
+}
+
+.benefits__icon--creativity {
+  background-image: url("/images/creativity-icon.png");
+}
+
+.prompts__container {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  border: 1px solid yellow;
+}
+
+.prompts__output {
+  font-size: 3rem;
+}
+
+.prompts__button {
+  padding: 1.5rem 2rem;
+}
+
+.emotion-selector {
+  display: grid;
+  gap: 5rem;
+  border: 1px solid green;
+}
+
+.emotion-selector__container {
   margin-inline: 2rem;
   display: flex;
   flex-direction: column;
@@ -112,11 +235,39 @@ nav {
   align-items: center;
 }
 
-.mood-tracker-input {
+.emotion-selector__grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   z-index: 1;
+}
+
+.emotion-selector__add-to-calendar {
+  max-width: fit-content;
+}
+
+.emotion-selector__reset-calendar {
+  margin-block: 1rem;
+}
+
+.emotion-selector__calendar-dropdown {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background: white;
+}
+
+.calendar-container {
+  margin-inline-start: auto;
+  margin-block-start: 5rem;
+  z-index: 1;
+  border: 1px solid orange;
+}
+
+.calenda-container__grid {
+  max-inline-size: 100%;
 }
 
 .fc-h-event {
@@ -135,13 +286,6 @@ nav {
   font-size: 1.5rem !important;
 }
 
-.calendar-container {
-  margin-inline-start: auto;
-  margin-block-start: 5rem;
-  z-index: 1;
-  border: 1px solid orange;
-}
-
 .fc-event-title-container {
   background-color: none;
 }
@@ -150,51 +294,7 @@ nav {
   display: none;
 }
 
-#prompt-button {
-  padding: 1.5rem 2rem;
-}
-
-#prompt-display {
-  font-size: 3rem;
-}
-
-.prompt-container {
-  display: flex;
-  height: calc(100vh - var(--header-height));
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  border: 1px solid yellow;
-}
-
-#add-emotions-button {
-  max-width: fit-content;
-}
-
-#clear-emotions-button {
-  margin-block: 1rem;
-}
-
-#mood-tracker {
-  display: grid;
-  gap: 5rem;
-  border: 1px solid green;
-}
-
-#select-emotion-calendar {
-  position: absolute;
-  z-index: 1000;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px;
-  background: white;
-}
-
-#calendar {
-  max-inline-size: 100%;
-}
-
+/* 
 @media (width < 48rem) {
   .calendar-container {
     max-inline-size: 100%;
@@ -212,4 +312,4 @@ nav {
     display: flex;
     gap: 0.5rem;
   }
-}
+} */

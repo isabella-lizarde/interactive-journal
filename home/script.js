@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const handleAddOrUpdateEmotion = () => {
-    const selectEmotion = document.getElementById("select-emotion");
+    const selectEmotion = document.getElementById("emotion-selector__dropdown");
     const selectedEmotion = selectEmotion.value;
 
     if (!selectedEmotion) {
@@ -113,7 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
         (event) => event.startStr === info.dateStr
       );
 
-      const dropdown = document.getElementById("select-emotion-calendar");
+      const dropdown = document.getElementById(
+        "emotion-selector__calendar-dropdown"
+      );
       dropdown.classList.remove("hidden");
       dropdown.style.top = `${cellRect.top + window.scrollY}px`;
       dropdown.style.left = `${cellRect.left + window.scrollX}px`;
@@ -149,18 +151,18 @@ document.addEventListener("DOMContentLoaded", function () {
   handleChangeOfMonth();
 
   document
-    .getElementById("add-emotions-button")
+    .getElementById("emotion-selector__add-to-calendar")
     .addEventListener("click", handleAddOrUpdateEmotion);
 
-  document.getElementById("prompt-button").addEventListener("click", () => {
-    const promptDisplay = document.getElementById("prompt-display");
+  document.getElementById("prompts__button").addEventListener("click", () => {
+    const promptDisplay = document.getElementById("prompts__output");
     const randomPromptIndex = Math.floor(Math.random() * journalPrompts.length);
     const getRandomPrompt = journalPrompts[randomPromptIndex];
     promptDisplay.textContent = getRandomPrompt;
   });
 
   document
-    .getElementById("clear-emotions-button")
+    .getElementById("emotion-selector__reset-calendar")
     .addEventListener("click", () => {
       localStorage.removeItem("calendarEvents");
       alert("Cleared all stored emotions!");
@@ -207,19 +209,24 @@ document.addEventListener("DOMContentLoaded", function () {
       result = "Bad Month";
     }
 
-    const summarySection = document.getElementById("monthly-summary");
-    summarySection.textContent = `${month + 1}/${year}: ${result}`;
+    // FIX HERE
+    const monthlySummary = document.getElementById(
+      "calendar-container__summary"
+    );
+    monthlySummary.textContent = `${month + 1}/${year}: ${result}`;
   };
 
   const today = new Date();
   calculateMonthlyMood(today.getMonth(), today.getFullYear());
 
-  function adjustContentHeight() {
-    const headerHeight = document.querySelector("#header").offsetHeight;
-    const landscapeImage = document.querySelector("#landscape");
-    landscapeImage.style.minHeight = `calc(100vh - ${headerHeight}px)`;
-  }
+  // CONTINUE BY MAKING ICON CLICKABLE TO SHOW DESCRIPTION
 
-  window.addEventListener("load", adjustContentHeight);
-  window.addEventListener("resize", adjustContentHeight);
+  // function adjustContentHeight() {
+  //   const headerHeight = document.querySelector("#header").offsetHeight;
+  //   const landscapeImage = document.querySelector("#landscape");
+  //   landscapeImage.style.minHeight = `calc(100vh - ${headerHeight}px)`;
+  // }
+
+  // window.addEventListener("load", adjustContentHeight);
+  // window.addEventListener("resize", adjustContentHeight);
 });

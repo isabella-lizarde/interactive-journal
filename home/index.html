@@ -13,8 +13,8 @@
     />
     <meta name="author" content="Your Name or Your Company" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Birthstone&family=Birthstone+Bounce:wght@400;500&family=Euphoria+Script&family=Hurricane&family=Molle&family=Qwitcher+Grypen:wght@400;700&family=Rochester&family=Style+Script&family=Whisper&family=Yuji+Syuku&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Lavishly+Yours&family=Yuji+Syuku&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css"
@@ -22,37 +22,102 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
 
-    <title>Isabella Lizarde | Interactive Journaling </title>
+    <title>Isabella Lizarde | Interactive Journal </title>
   </head>
   <body>
-    <header id="header">
-      <nav>
-        <h1 class="animated-header">Sage & Ink</h1>
-        <ul class="nav-links">
-          <li><a href="#journal-prompts">Journal Prompts</a></li>
-          <li><a href="#mood-tracker">Mood Tracker</a></li>
-          <li><a href="#journal-entry">Journal Entry</a></li>
-          <li><a href="#why-journal">Why Journal?</a></li>
-          <li><a href="#helpful-links">Helpful Links</a></li>
+    <header class="header">
+      <nav class="header__nav">
+        <h1 class="header__brand">Sage & Ink</h1>
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a class="header__nav-link" href="#journal-prompts">Journal Prompts</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#mood-tracker">Mood Tracker</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#journal-entry">Journal Entry</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#why-journal">Why Journal?</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#helpful-links">Helpful Links</a></li>
         </ul>
     </header>
-    <main>
-      <section id="landscape">
-          <div class="landscape-image" alt="Landscape image">
+    <main class="main">
+      <section class="main__container">
+          <div class="main__hero" alt="Illustration of a desk used for journaling in a cozy room looking">
         </div>
       </section>
-      <section id="journal-prompts">
-        <div class="prompt-container">
-          <h2 id="prompt-display">prompt display</h2>
-          <button id="prompt-button">Press for a new journal prompt</button>
+      <section class="welcome">
+        <div class="welcome__container">
+          <h2 class="welcome__title">Welcome to Sage & Ink</h2>
+          <p class="welcome__description">
+            Sage & Ink is an interactive journaling platform designed to help
+            you reflect on your day, track your emotions, and organize your
+            thoughts. Whether you're looking to boost your creativity, deepen
+            your self-awareness, or simply unwind after a long day, Sage & Ink
+            has you covered. Start your journaling journey today!
+          </p>
         </div>
       </section>
-      <section id="mood-tracker">
-        <div class="mood-tracker-container">
-          <div class="mood-tracker-header">
-            <h2>Monthly Mood Tracker:</h2>
-            <div class="mood-tracker-input">
-              <select id="select-emotion">
+      <section class="benefits">
+        <div class="benefits__container">
+          <h2 class="benefits__title">Why Journal?</h2>
+          <div class="benefits__display-description">  
+            <p class="benefits__description">
+               Writing in a journal can be an effective way to cope with anxiety,
+               relieve stress, and deal with feelings of depression. It also helps
+               you explore difficult emotions and recognize patterns or triggers
+               that may lead to anxious moments.
+            </p> 
+          </div>
+            <div class="benefits__grid">
+              <div class="benefits__item">
+                <div class="benefits__icon benefits__icon--emotional-wellness"></div>
+                <h3 class="benefits__item-title">Emotional Wellness</h3>
+                <p class="benefits__description--hidden">
+                  Writing in a journal can be an effective way to cope with anxiety,
+                  relieve stress, and deal with feelings of depression. It also helps
+                  you explore difficult emotions and recognize patterns or triggers
+                  that may lead to anxious moments.
+                </p>
+              </div>
+              <div class="benefits__item">
+                <div class="benefits__icon benefits__icon--self-awareness"></div>
+                <h3 class="benefits__item-title">Deepen Self-awareness</h3>
+                <p class="benefits__description--hidden">
+                  Keeping a journal allows you to gain deeper self-awareness by
+                  uncovering your innermost thoughts, emotions, and fears. It also
+                  provides an opportunity to reflect on your feelings, actions, and
+                  experiences.
+                </p>
+              </div>
+              <div class="benefits__item">
+                <div class="benefits__icon benefits__icon--memory"></div>
+                <h3 class="benefits__item-title">Boosts Memory</h3>
+                <p class="benefits__description--hidden" >
+                  Journaling can enhance your memory and cognitive abilities. Putting
+                  your experiences into writing helps you retain and recall them more
+                  effectively.
+                </p>
+              </div>
+              <div class="benefits__item">
+                <div class="benefits__icon benefits__icon--creativity"></div>
+                <h3 class="benefits__item-title">Inspire Creativity</h3>
+                <p class="benefits__description--hidden">
+                  Journaling sparks creativity by giving you a space to explore your
+                  thoughts and ideas freely. It helps you think in new ways, connect
+                  different ideas, and break through mental blocks. Writing regularly
+                  encourages self-expression and can lead to fresh, creative insights.
+                </p>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section class="prompts">
+        <div class="prompts__container">
+          <h2 id="prompts__output" class="prompts__output">prompt display</h2>
+          <button id="prompts__button" class="prompts__button">Press for a new journal prompt</button>
+        </div>
+      </section>
+      <section class="emotion-selector">
+          <div class="emotion-selector__container">
+            <h2 class="emotion-selector__title">Monthly Mood Tracker:</h2>
+            <div class="emotion-selector__grid">
+              <select id="emotion-selector__dropdown" class="emotion-selector__dropdown">
                 <option value="" disabled selected>Select an emotion</option>
                 <option value="😄" title="Happy">😄</option>
                 <option value="😐" title="Neutral">😐</option>
@@ -60,11 +125,11 @@
                 <option value="😰" title="Anxious">😰</option>
                 <option value="😢" title="Sad">😢</option>
               </select>
-              <button id="add-emotions-button">Add</button>
+              <button id="emotion-selector__add-to-calendar" class="emotion-selector__add-to-calendar">Add</button>
+              <button id="emotion-selector__reset-calendar" class="emotion-selector__reset-calendar">Clear All Emotions</button>
             </div>
-            <button id="clear-emotions-button">Clear All Emotions</button>
           </div>
-          <select id="select-emotion-calendar" class="hidden">
+          <select id="emotion-selector__calendar-dropdown" class="hidden emotion-selector__calendar-dropdown">
             <option value="" disabled selected>Select an emotion</option>
             <option value="😄" title="Happy">😄</option>
             <option value="😐" title="Okay">😐</option>
@@ -74,59 +139,22 @@
           </select>
         </div>
       </section>
-      <div class="calendar-container">
-        <div id="calendar"></div>
-        <div id="monthly-summary" class="summary-section"></div>
-      </div>
-      <section id="journal-entry">
+      <!-- CONTINUE HERE -->
+      <section class="calendar-container">
+        <div id="calendar" class="calendar-container__grid"></div>
+        <div id="calendar-container__summary" class="calendar-container__summary"></div>
+      </section>
+      <section class="journal-entry">
         <div class="journal-entry-container">
           <div class="journal-entry-header">
             <h2>Journal Entry:</h2>
-            <button id="add-entry-button">Add Entry</button>
+            <button id="add-entry-button" class="add-entry-button">Add Entry</button>
           </div>
           <textarea
-            id="journal-entry-text"
+            id="journal-entry-text" class="journal-entry-text"
             placeholder="Write your journal entry here..."
           ></textarea>
-          <button id="clear-entry-button">Clear Entry</button>
-        </div>
-      </section>
-      <section id="">
-        <div>
-          <h2>Why Journal?</h2>
-          <h3>Emotional Wellness</h3>
-          <p>
-            Writing in a journal can be an effective way to cope with anxiety,
-            relieve stress, and deal with feelings of depression. It also helps
-            you explore difficult emotions and recognize patterns or triggers
-            that may lead to anxious moments.
-          </p>
-        </div>
-        <div>
-          <h3>Deepen Self-awareness</h3>
-          <p>
-            Keeping a journal allows you to gain deeper self-awareness by
-            uncovering your innermost thoughts, emotions, and fears. It also
-            provides an opportunity to reflect on your feelings, actions, and
-            experiences.
-          </p>
-        </div>
-        <div>
-          <h3>Boosts Memory</h3>
-          <p>
-            Journaling can enhance your memory and cognitive abilities. Putting
-            your experiences into writing helps you retain and recall them more
-            effectively.
-          </p>
-        </div>
-        <div>
-          <h3>Inspire Creativity</h3>
-          <p>
-            Journaling sparks creativity by giving you a space to explore your
-            thoughts and ideas freely. It helps you think in new ways, connect
-            different ideas, and break through mental blocks. Writing regularly
-            encourages self-expression and can lead to fresh, creative insights.
-          </p>
+          <button id="clear-entry-button" class="clear-entry-button">Clear Entry</button>
         </div>
       </section>
       <section>
