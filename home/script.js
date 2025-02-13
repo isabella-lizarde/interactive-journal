@@ -154,12 +154,17 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("emotion-selector__add-to-calendar")
     .addEventListener("click", handleAddOrUpdateEmotion);
 
-  document.getElementById("prompts__button").addEventListener("click", () => {
-    const promptDisplay = document.getElementById("prompts__output");
-    const randomPromptIndex = Math.floor(Math.random() * journalPrompts.length);
-    const getRandomPrompt = journalPrompts[randomPromptIndex];
-    promptDisplay.textContent = getRandomPrompt;
-  });
+  // const journalPromptsGenerator = () => {
+  //   document.getElementById("prompts__button").addEventListener("click", () => {
+  //     const promptDisplay = document.getElementById("prompts__output");
+  //     const randomPromptIndex = Math.floor(
+  //       Math.random() * journalPrompts.length
+  //     );
+  //     const getRandomPrompt = journalPrompts[randomPromptIndex];
+  //     promptDisplay.textContent = getRandomPrompt;
+  //   });
+  //   journalPromptsGenerator();
+  // };
 
   document
     .getElementById("emotion-selector__reset-calendar")
@@ -219,14 +224,57 @@ document.addEventListener("DOMContentLoaded", function () {
   const today = new Date();
   calculateMonthlyMood(today.getMonth(), today.getFullYear());
 
-  // CONTINUE BY MAKING ICON CLICKABLE TO SHOW DESCRIPTION
+  const revealBenefitsDescription = (event) => {
+    const emotionalWellnessDescription = document.querySelector(
+      ".benefits__description-emotional-wellness"
+    );
+    const selfAwarenessDescription = document.querySelector(
+      ".benefits__description-self-awareness"
+    );
 
-  // function adjustContentHeight() {
-  //   const headerHeight = document.querySelector("#header").offsetHeight;
-  //   const landscapeImage = document.querySelector("#landscape");
-  //   landscapeImage.style.minHeight = `calc(100vh - ${headerHeight}px)`;
-  // }
+    const memoryDescription = document.querySelector(
+      ".benefits__description-memory"
+    );
 
-  // window.addEventListener("load", adjustContentHeight);
-  // window.addEventListener("resize", adjustContentHeight);
+    const creativityDescription = document.querySelector(
+      ".benefits__description-creativity"
+    );
+
+    const icon = event.target;
+    console.log(icon);
+
+    if (icon.classList.contains("benefits__icon--emotional-wellness")) {
+      emotionalWellnessDescription.classList.remove(
+        "benefits__description--hidden"
+      );
+      emotionalWellnessDescription.classList.add(
+        "benefits__description--reveal"
+      );
+    } else if (icon.classList.contains("benefits__icon--self-awareness")) {
+      selfAwarenessDescription.classList.remove(
+        "benefits__description--hidden"
+      );
+      selfAwarenessDescription.classList.add("benefits__description--reveal");
+    } else if (icon.classList.contains("benefits__icon--memory")) {
+      memoryDescription.classList.remove("benefits__description--hidden");
+      memoryDescription.classList.add("benefits__description--reveal");
+    } else if (icon.classList.contains("benefits__icon--creativity")) {
+      creativityDescription.classList.remove("benefits__description--hidden");
+      creativityDescription.classList.add("benefits__description--reveal");
+    }
+  };
+
+  const benefitIcon = document.querySelectorAll(".benefits__icon");
+  benefitIcon.forEach((icon) => {
+    icon.addEventListener("mouseenter", revealBenefitsDescription);
+  });
+
+  // window.addEventListener("scroll", function () {
+  //   let video = document.querySelector(".main__hero");
+  //   let scrollPosition = window.scrollY;
+
+  //   video.style.transform = `translate(-50%, calc(-50% + ${
+  //     scrollPosition * 0.5
+  //   }px))`;
+  // });
 });
