@@ -269,6 +269,10 @@ document.addEventListener("DOMContentLoaded", function () {
     icon.addEventListener("mouseenter", revealBenefitsDescription);
   });
 
+  document.querySelector("#flipPage").addEventListener("click", function () {
+    document.querySelector(".main__hero-grid").classList.toggle("flip");
+  });
+
   // window.addEventListener("scroll", function () {
   //   let video = document.querySelector(".main__hero");
   //   let scrollPosition = window.scrollY;
