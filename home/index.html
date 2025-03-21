@@ -21,52 +21,47 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <script src="https://kit.fontawesome.com/89300977dc.js" crossorigin="anonymous"></script>
     <title> Sage & Ink | Homepage </title>
   </head>
   <body>
     <header class="header">
-      <!-- <div class="header__container">
-        <img src="/images/logo.png" alt="Logo" class="header__logo" />
-      </div> -->
       <nav class="header__nav">
-        <ul class="header__nav-list">
-          <li class="header__nav-item"><a class="header__nav-link" href="#" id="flipPage">Home</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="#why-journal">Why Journal?</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="/home/prompts.html">Journal Prompts</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="#mood-tracker">Mood Tracker</a></li>
-        </ul>
+          <ul class="header__nav__list">
+            <li class="header__nav__item"><a class="header__nav--link" href="#" id="flipPage">Home</a></li>
+            <li class="header__nav__item"><a class="header__nav--link" href="#why-journal">Why Journal?</a></li>
+            <li class="header__nav__item"><a class="header__nav--link" href="/home/prompts.html">Journal Prompts</a></li>
+            <li class="header__nav__item"><a class="header__nav--link" href="#mood-tracker">Mood Tracker</a></li>
+          </ul>
       </nav>
     </header>
     <main class="main">
       <section class="main__hero">
-        <div class="main__hero-grid">
-          <h1 class="main__hero-title">
-           <img src="/images/logo.png" alt="Logo" class="main__hero__logo main__hero__cutout" aria-hidden="true" />
+        <ul class="main__hero__grid">
+          <h1 class="main__hero__container--logo">
+            <img src="/images/illustration-logo.png" alt="Illustrated logo for Sage & Ink" class="main__hero__element main__hero__illustration--logo" aria-hidden="true" width="1200" height="auto" loading="lazy" />
           </h1>
-          <div class="main__hero__container--sunflower">
-            <img src="/images/sunflower-cutout.png" alt="Sunflower" class="main__hero__cutout main__hero__cutout--sunflower" width="600" height="auto" loading="lazy" />
-          </div>
-           <div class="main__hero__container--bicycle">
-             <img src="/images/bicycle-photo.png" alt="Bicycle with sign" class="main__hero__cutout main__hero__cutout--bicycle" width="600" height="auto" loading="lazy"/>
-          </div>
-          <div class="main__hero__container--coffee">
-             <img src="/images/coffee-cutout.png" alt="Coffee with books" class="main__hero__cutout main__hero__cutout--coffee" width="600" height="auto" loading="lazy"/>
-          </div>
-          <div class="main__hero__container--candle">
-            <img src="/images/candle-cutout.png" alt="Desk with candle and journal" class="main__hero__cutout main__hero__cutout--candle" width="600" height="auto" loading="lazy"/>
-          </div>
-          <div class="main__hero__container--mandala">
-             <img src="/images/mandala-illustration.png" alt="Mandala Illustration" class="main__hero__cutout main__hero__illustration--mandala" width="600" height="auto" loading="lazy"/>
-          </div>
-           <div class="main__hero-description">
-             <img src="/images/torn-paper-cutout.png" alt="Torn Paper" class="main__hero__cutout main__hero__cutout--paper" width="600" height="auto" loading="lazy"/>
-              <p class="main__hero-description-text">
+          <li class="main__hero__container--coffee">
+            <img src="/images/cutout-coffee.png" alt="Cutout image of an iced coffee on top of books" class="main__hero__element main__hero__cutout--coffee" width="800" height="auto" loading="lazy" />
+          </li>
+           <li class="main__hero__container--jars">
+             <img src="/images/polaroid-jars.png" alt="Polaroid photo of sage, palo santo, and jars of herbs" class="main__hero__element main__hero__polaroid--jars" width="800" height="auto" loading="lazy"/>
+           </li>
+           <li class="main__hero__container--candle">
+             <img src="/images/polaroid-candle.png" alt="Polaroid photo of a lit candle and a journal" class="main__hero__element main__hero__polaroid--candle" width="600" height="auto" loading="lazy"/>
+           </li>
+             <li class="main__hero__container--typewriter">
+             <img src="/images/cutout-typewriter.png" alt="Cut out image of a glass of iced coffee placed on top of books" class="main__hero__element main__hero__cutout--typewriter" width="800" height="auto" loading="lazy"/>
+            </li>
+           <li class="main__hero__container--note">
+             <img src="/images/cutout-note.png" alt="Cut out image of a note with a summary of the website's introduction" class="main__hero__element main__hero__cutout--note" width="1000" height="auto" loading="lazy"/>
+              <p class="main__hero__note--summary">
                 Designed to help you reflect on your day, track your emotions, and organize your
                 thoughts. Whether you're looking to boost your creativity, deepen
                 your self-awareness, or simply unwind after a long day, our interactive journal has you covered.
               </p>
-           </div>
-        </div>
+            </li>
+          </ul>
       </section>
       <section class="benefits">
         <div class="benefits__grid">
@@ -160,8 +155,24 @@
         </div>
       </section>
     </main>
-    <footer>
-      <p>Handcrafted with care - designed and developed by Isabella Lizarde</p>
+    <footer class="footer">
+      <section class="footer__grid">
+        <div class="footer__container">
+          <ul class="footer__list">
+            <li class="footer__item footer__item--previous">
+              <a id="footer__link--previous" class="footer__link footer__link--previous" href="https://www.psychologytoday.com/us/basics/mindfulness" target="_blank">
+                <img src="/images/arrow-previous.png" alt="Arrow pointing left" class="footer__arrow" width="600" height="auto" loading="lazy"/>
+              </a>
+            </li>
+            <li class="footer__item footer__item__credit"> Handcrafted with care - designed and developed by <a class="footer__credit--github" href="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/positive-thinking/art-20043950" target="_blank">Isabella Lizarde</a></li>
+            <li class="footer__item">
+              <a id="footer__link--next" class="footer__link footer__link--next" href="https://www.healthline.com/health/how-to-be-happy" target="_blank">
+                <img src="/images/arrow-next.png" alt="Arrow pointing right" class="footer__arrow" width="600" height="auto" loading="lazy"/>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
     </footer>
     <script src="script.js"></script>
     <!-- <script src="journalPrompts.js"></script> -->
