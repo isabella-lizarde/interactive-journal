@@ -3,178 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Easily generate journal entries online with our Journal Entry Generator. Reflect on your day and organize your thoughts effortlessly."
-    />
-    <meta
-      name="keywords"
-      content="journal entry generator, online journal, reflection tools, journaling app"
-    />
-    <meta name="Isabella Lizarde" content="Sage & Ink" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cinzel&family=Give+You+Glory&family=Shrikhand&family=The+Girl+Next+Door&family=Yuji+Syuku&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/global.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
-    <script src="https://kit.fontawesome.com/89300977dc.js" crossorigin="anonymous"></script>
-    <title> Sage & Ink | Home </title>
+    <title>Sage & Ink</title>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <header class="header">
-      <nav class="header__nav">
-          <ul class="header__nav__list">
-            <li class="header__nav__item"><a class="header__nav--link" href="#" id="flipPage">Home</a></li>
-            <li class="header__nav__item"><a class="header__nav--link" href="#why-journal">Why Journal?</a></li>
-            <li class="header__nav__item"><a class="header__nav--link" href="/home/prompts.html">Journal Prompts</a></li>
-            <li class="header__nav__item"><a class="header__nav--link" href="#mood-tracker">Mood Tracker</a></li>
-          </ul>
-      </nav>
-    </header>
-    <main class="main">
-      <section class="main__hero">
-        <ul class="main__hero__grid">
-          <h1 class="main__hero__container--logo">
-            <img src="/images/illustration-logo.png" alt="Illustrated logo for Sage & Ink" class="main__hero__element main__hero__illustration--logo" aria-hidden="true" width="1200" height="auto" loading="lazy" />
-          </h1>
-          <li class="main__hero__container--coffee">
-            <img src="/images/cutout-coffee.png" alt="Cutout image of an iced coffee on top of books" class="main__hero__element main__hero__cutout--coffee" width="800" height="auto" loading="lazy" />
-          </li>
-           <li class="main__hero__container--jars">
-             <img src="/images/polaroid-jars.png" alt="Polaroid photo of sage, palo santo, and jars of herbs" class="main__hero__element main__hero__polaroid--jars" width="800" height="auto" loading="lazy"/>
-           </li>
-           <li class="main__hero__container--candle">
-             <img src="/images/polaroid-candle.png" alt="Polaroid photo of a lit candle and a journal" class="main__hero__element main__hero__polaroid--candle" width="600" height="auto" loading="lazy"/>
-           </li>
-             <li class="main__hero__container--typewriter">
-             <img src="/images/cutout-typewriter.png" alt="Cut out image of a glass of iced coffee placed on top of books" class="main__hero__element main__hero__cutout--typewriter" width="800" height="auto" loading="lazy"/>
-            </li>
-           <li class="main__hero__container--note">
-             <img src="/images/cutout-note.png" alt="Cut out image of a note with a summary of the website's introduction" class="main__hero__element main__hero__cutout--note" width="1000" height="auto" loading="lazy"/>
-              <p class="main__hero__note--summary">
-                Designed to help you reflect on your day, track your emotions, and organize your
-                thoughts. Whether you're looking to boost your creativity, deepen
-                your self-awareness, or simply unwind after a long day, our interactive journal has you covered.
-              </p>
-            </li>
-          </ul>
-      </section>
-      <section class="benefits">
-        <div class="benefits__grid">
-          <h2 class="benefits__title ">Why Journal?</h2>
-            <p class="benefits__introduction">
-               Journaling is a powerful tool for personal growth and mental well-being. It provides a private space to process your thoughts and emotions. Over time, it becomes a record of your personal journey, highlighting progress and learning from past experiences. Overall, journaling fosters mindfulness, supports emotional healing, and encourages a deeper connection with yourself.
-            </p> 
-            <p class="benefits__introduction-instruction"> Hover over the icons below to learn more about some of the important benefits of journaling </p>
-              <div class="benefits__grid-item benefits__grid-item-emotional-wellness">
-                <div class="benefits__icon benefits__icon--emotional-wellness"></div>
-                <h3 class="benefits__item-title">Emotional Wellness</h3>
-                <p class="benefits__description benefits__description-emotional-wellness benefits__description--hidden">
-                  Writing in a journal can be an effective way to cope with anxiety,
-                  relieve stress, and deal with feelings of depression. It also helps
-                  you explore difficult emotions and recognize patterns or triggers
-                  that may lead to anxious moments.
-                </p>
-              </div>
-              <div class="benefits__grid-item">
-                <div class="benefits__icon benefits__icon--self-awareness"></div>
-                <h3 class="benefits__item-title">Deepen Self-awareness</h3>
-                <p class="benefits__description benefits__description-self-awareness benefits__description--hidden">
-                  Keeping a journal allows you to gain deeper self-awareness by
-                  uncovering your innermost thoughts, emotions, and fears. It also
-                  provides an opportunity to reflect on your feelings, actions, and
-                  experiences.
-                </p>
-              </div>
-              <div class="benefits__grid-item">
-                <div class="benefits__icon benefits__icon--memory"></div>
-                <h3 class="benefits__item-title">Boosts Memory</h3>
-                <p class="benefits__description benefits__description-memory benefits__description--hidden" >
-                  Journaling can enhance your memory and cognitive abilities. Putting
-                  your experiences into writing helps you retain and recall them more
-                  effectively.
-                </p>
-              </div>
-              <div class="benefits__grid-item">
-                <div class="benefits__icon benefits__icon--creativity"></div>
-                <h3 class="benefits__item-title">Inspire Creativity</h3>
-                <p class="benefits__description benefits__description-creativity benefits__description--hidden">
-                  Journaling sparks creativity by giving you a space to explore your
-                  thoughts and ideas freely. It helps you think in new ways, connect
-                  different ideas, and break through mental blocks. Writing regularly
-                  encourages self-expression and can lead to fresh, creative insights.
-                </p>
-              </div>
-          </div>
-      </section>
-      <section class="emotion-selector">
-          <div class="emotion-selector__container">
-            <h2 class="emotion-selector__title">Monthly Mood Tracker:</h2>
-            <div class="emotion-selector__grid">
-              <select id="emotion-selector__dropdown" class="emotion-selector__dropdown">
-                <option value="" disabled selected>Select an emotion</option>
-                <option value="😄" title="Happy">😄</option>
-                <option value="😐" title="Neutral">😐</option>
-                <option value="😡" title="Angry">😡</option>
-                <option value="😰" title="Anxious">😰</option>
-                <option value="😢" title="Sad">😢</option>
-              </select>
-              <button id="emotion-selector__add-to-calendar" class="emotion-selector__add-to-calendar">Add</button>
-              <button id="emotion-selector__reset-calendar" class="emotion-selector__reset-calendar">Clear All Emotions</button>
-            </div>
-          </div>
-          <select id="emotion-selector__calendar-dropdown" class="hidden emotion-selector__calendar-dropdown">
-            <option value="" disabled selected>Select an emotion</option>
-            <option value="😄" title="Happy">😄</option>
-            <option value="😐" title="Okay">😐</option>
-            <option value="😡" title="Angry">😡</option>
-            <option value="😰" title="Anxious">😰</option>
-            <option value="😢" title="Sad">😢</option>
-          </select>
-        </div>
-      </section>
-      <section class="calendar-container">
-        <div id="calendar" class="calendar-container__grid"></div>
-        <div id="calendar-container__summary" class="calendar-container__summary"></div>
-      </section>
-      <section class="journal-entry">
-        <div class="journal-entry-container">
-          <div class="journal-entry-header">
-            <h2>Journal Entry:</h2>
-            <button id="add-entry-button" class="add-entry-button">Add Entry</button>
-          </div>
-          <textarea
-            id="journal-entry-text" class="journal-entry-text"
-            placeholder="Write your journal entry here..."
-          ></textarea>
-          <button id="clear-entry-button" class="clear-entry-button">Clear Entry</button>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <section class="footer__grid">
-        <div class="footer__container">
-          <ul class="footer__list">
-            <li class="footer__item footer__item--previous">
-              <a id="footer__link--previous" class="footer__link footer__link--previous" href="https://www.psychologytoday.com/us/basics/mindfulness" target="_blank">
-                <img src="/images/arrow-previous.png" alt="Arrow pointing left" class="footer__arrow" width="600" height="auto" loading="lazy"/>
-              </a>
-            </li>
-            <li class="footer__item footer__item__credit"> Handcrafted with care - designed and developed by <a class="footer__credit--github" href="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/positive-thinking/art-20043950" target="_blank">Isabella Lizarde</a></li>
-            <li class="footer__item">
-              <a id="footer__link--next" class="footer__link footer__link--next" href="https://www.healthline.com/health/how-to-be-happy" target="_blank">
-                <img src="/images/arrow-next.png" alt="Arrow pointing right" class="footer__arrow" width="600" height="auto" loading="lazy"/>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </footer>
-    <script src="/js/js/script.js"></script>
-    <!-- <script src="journalPrompts.js"></script> -->
+    <div class="carousel-container">
+      <div id="page-content">Loading...</div>
+      <!-- This will load different pages -->
+
+      <!-- Navigation Buttons -->
+      <!-- <button class="prev-btn">❮</button> -->
+      <!-- <button class="next-btn">❯</button> -->
+    </div>
+
+    <script src="../js/js/navigation.js"></script>
   </body>
 </html>
